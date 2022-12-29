@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Гра камінь/ножниці</h1>
+    <input class="inp" type="number" />
+    <button>Грати</button>
+    <h2>
+      Ваш результат:
+      <span class="out"></span>
+    </h2>
+    <h2>
+        Итог:
+        <span class="out-2"></span>
+    </h2>
+    <script>
+      let inp = document.querySelector(".inp").value;
+      let out = document.querySelector(".out");
+      let out2 = document.querySelector('.out-2');
+      let button = document.querySelector("button");
+      
+      function computer(min=1, max=4)  {
+     return Math.floor(Math.random() * (max - min) + min); };
+     console.log(getRandomInt(4));
+
+console.log('1 = камень, 2 = ножницы, 3 = бумага')
+      /* function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+
+      }
+      console.log(getRandomInt(4)); */
+
+      // 1 = камінь 2 = ножиці 3 = бумага 
+
+      function game(inp, computer) {
+
+if (inp === 1 && computer === 1){
+  out.innerHTML = "Камень VS Камень";
+}else if (inp === 1 && computer === 2){
+  out.innerHTML = "Камень VS Ножницы";
+}else if (inp ===1 && computer === 3){
+  out.innerHTML = "Камень VS Бумага";
+} else {
+  out.innerHTML = "Ничего";
+};
+}
+
+
+document.querySelector('button').onclick = computer; game; 
+    </script>
+
+
+</body>
+</html>
