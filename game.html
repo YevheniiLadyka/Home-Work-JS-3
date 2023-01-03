@@ -9,7 +9,7 @@
 <body>
     
     <h1>Гра камінь/ножниці</h1>
-    <input class="inp" type="number" />
+    <input class="inp" type="text" />
     <button>Грати</button>
     <h2>
       Ваш результат:
@@ -20,39 +20,62 @@
         <span class="out-2"></span>
     </h2>
     <script>
-      let inp = document.querySelector(".inp").value;
+      let inp = document.querySelector(".inp");
       let out = document.querySelector(".out");
       let out2 = document.querySelector('.out-2');
       let button = document.querySelector("button");
       
-      function computer(min=1, max=4)  {
-     return Math.floor(Math.random() * (max - min) + min); };
-     console.log(getRandomInt(4));
-
-console.log('1 = камень, 2 = ножницы, 3 = бумага')
-      /* function getRandomInt(max) {
+      function getRandomInt(max) {
         return Math.floor(Math.random() * max);
 
       }
-      console.log(getRandomInt(4)); */
+      console.log(getRandomInt(3));
 
-      // 1 = камінь 2 = ножиці 3 = бумага 
+      button.onclick = () => {
 
-      function game(inp, computer) {
-
-if (inp === 1 && computer === 1){
-  out.innerHTML = "Камень VS Камень";
-}else if (inp === 1 && computer === 2){
-  out.innerHTML = "Камень VS Ножницы";
-}else if (inp ===1 && computer === 3){
-  out.innerHTML = "Камень VS Бумага";
-} else {
-  out.innerHTML = "Ничего";
-};
-}
-
-
-document.querySelector('button').onclick = computer; game; 
+        switch (inp.value) {
+          case "камень": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Камень vs Камень`;
+              out2.innerHTML = `Ничья`;
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML = `Камень vs Ножницы`;
+              out2.innerHTML = `Победа`;
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML = `Камень vs Бумага`;
+              out2.innerHTML = `Поражение`;
+            }
+            break;
+          }
+          case "ножницы": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Ножницы vs Камень`;
+              out2.innerHTML = `Поражение`;
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML = `Ножницы vs Ножницы`;
+              out2.innerHTML = `Ничья`;
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML = `Ножницы vs Бумага`;
+              out2.innerHTML = `Победа`;
+            }
+            break;
+          }
+          case "бумага": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Бумага vs Камень`;
+              out2.innerHTML = `Победа`;
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML = `Бумага vs Ножницы`;
+              out2.innerHTML = `Поражение`;
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML = `Бумага vs Бумага`;
+              out2.innerHTML = `Ничья`;
+            }
+            break;
+          }
+          
+        }
+      }
     </script>
 
 
